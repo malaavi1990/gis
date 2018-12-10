@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D8B8D04F-D37E-4C5D-94F3-72414FFEEBCD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MohatechBusiness</RootNamespace>
+    <AssemblyName>MohatechBusiness</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\CateoryBusiness.cs" />
+    <Compile Include="Classes\GalleryBusiness.cs" />
+    <Compile Include="Classes\NewsBusiness.cs" />
+    <Compile Include="Classes\ProductBusiness.cs" />
+    <Compile Include="Classes\ProductCategoryBusiness.cs" />
+    <Compile Include="Classes\RoleBusiness.cs" />
+    <Compile Include="Classes\SettingBusiness.cs" />
+    <Compile Include="Classes\SliderBusiness.cs" />
+    <Compile Include="Classes\TagBusiness.cs" />
+    <Compile Include="Classes\UserBusiness.cs" />
+    <Compile Include="Interfaces\ICategoryBusiness.cs" />
+    <Compile Include="Interfaces\IGalleryBusiness.cs" />
+    <Compile Include="Interfaces\INewsBusiness.cs" />
+    <Compile Include="Interfaces\IProductBusiness.cs" />
+    <Compile Include="Interfaces\IProductCategoryBusiness.cs" />
+    <Compile Include="Interfaces\IRoleBusiness.cs" />
+    <Compile Include="Interfaces\ISettingBusiness.cs" />
+    <Compile Include="Interfaces\ISliderBusiness.cs" />
+    <Compile Include="Interfaces\ITagBusiness.cs" />
+    <Compile Include="Interfaces\IUserBusiness.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MohatechDAL\MohatechDAL.csproj">
+      <Project>{2FD1E492-575E-49EB-95FC-B2B843EE6A8C}</Project>
+      <Name>MohatechDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MohatechDomain\MohatechDomain.csproj">
+      <Project>{82B0B45E-8181-4B08-B025-318567A98F6E}</Project>
+      <Name>MohatechDomain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="IoC\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

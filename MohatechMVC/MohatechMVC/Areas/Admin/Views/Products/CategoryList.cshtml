@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MohatechDomain.Category>
+
+@{
+    ViewBag.Title = "لیست دسته بندی ها";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h4>لیست دسته بندی ها</h4>
+<hr/>
+<p>
+    @Html.ActionLink("افزودن دسته بندی", "CreateCategory", new { id = 0 }, new { @class = "create-btn" })
+    @Html.ActionLink("لیست محصولات", "Index", new { }, new { @class = "create-btn" })
+</p>
+<table class="table table-bordered mt-4">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            زیر گروه ها
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.ParentId == 0)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    <ul>
+                        @foreach (var subGroup in Model.Where(c => c.ParentId == item.CategoryId))
+                        {
+                            <li>
+                                @subGroup.Title
+                                <a href="/Admin/Products/EditCategory/@subGroup.CategoryId"><i class="far fa-edit"></i></a> |
+                                <a href="/Admin/Products/DeleteCategory/@subGroup.CategoryId"><i class="far fa-trash-alt"></i></a>
+                            </li>
+                        }
+                    </ul>
+
+                </td>
+                <td>
+                    <a href="/Admin/Products/EditCategory/@item.CategoryId"><i class="far fa-edit"></i></a> |
+                    <a href="/Admin/Products/DeleteCategory/@item.CategoryId"><i class="far fa-trash-alt"></i></a> |
+                    <a href="/Admin/Products/CreateCategory/@item.CategoryId"><i class="fas fa-plus"></i></a>
+                </td>
+            </tr>
+        }
+
+    }
+
+</table>

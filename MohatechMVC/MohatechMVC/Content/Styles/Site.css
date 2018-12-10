@@ -1,0 +1,177 @@
+﻿/*** Font Face ********************************************/
+@font-face {
+    font-family: 'IranSans';
+    src: url("/Content/Fonts/IRANSansWeb.eot");
+    src: url("/Content/Fonts/IRANSansWeb.eot?#iefix") format("embedded-opentype"), url("/Content/Fonts/IRANSansWeb.woff2") format("woff2"), url("/Content/Fonts/IRANSansWeb.woff") format("woff"), url("/Content/Fonts/IRANSansWeb.ttf") format("truetype");
+}
+
+/*** Default **********************************************/
+body {
+    font-family: IranSans;
+    direction: rtl;
+    padding: 0;
+    margin: 0;
+}
+
+* {
+    font-family: IranSans;
+    direction: rtl;
+    padding: 0;
+    margin: 0;
+}
+
+ul, li, p, h1, h2, h3, h4, h5, h6, a, span, div {
+    font-family: IranSans;
+    direction: rtl;
+    text-align: right;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: none;
+    }
+
+.row {
+    margin: 0;
+}
+
+/*** Header **********************************************/
+#header {
+    background-color: #333;
+    padding: 20px;
+}
+
+    #header .notification {
+        float: left;
+    }
+
+        #header .notification a {
+            margin: 15px;
+        }
+
+            #header .notification a i {
+                font-size: 28px;
+                color: #fff;
+                padding-top: 15px;
+                transition: all 0.5s;
+            }
+
+                #header .notification a i:hover {
+                    color: #00ced1;
+                }
+
+    #header .user {
+        float: right;
+    }
+
+        #header .user h3 {
+            display: inline;
+            color: #fff;
+            font-size: 24px;
+            padding-right: 20px;
+        }
+
+        #header .user img {
+            width: 60px;
+        }
+
+/*** Content **********************************************/
+#content {
+    height: 1000px;
+    position: relative;
+}
+
+    #content .side-bar {
+        background-color: #00ced1;
+        padding: 20px;
+        height: 1000px;
+    }
+
+        #content .side-bar .menu ul li {
+            padding: 13px;
+        }
+
+            #content .side-bar .menu ul li a {
+                color: #fff;
+                font-size: 18px;
+                margin-right: 18px;
+                transition: all 0.6s;
+            }
+
+                #content .side-bar .menu ul li a.active, #content .side-bar .menu ul li a.active i {
+                    color: #0000cd;
+                }
+
+                #content .side-bar .menu ul li a:hover, #content .side-bar .menu ul li a:hover i {
+                    color: #0000cd;
+                }
+
+                #content .side-bar .menu ul li a i {
+                    color: #fff;
+                    font-size: 22px;
+                    padding-left: 10px;
+                    transition: all 0.6s;
+                }
+
+    #content .main-content {
+        padding: 50px;
+    }
+
+/*** Footer **********************************************/
+footer {
+    background-color: #111;
+}
+
+    footer .copy-right {
+        width: 100%;
+    }
+
+        footer .copy-right p {
+            padding: 15px;
+            text-align: center;
+            color: #fff;
+            font-size: 16px;
+        }
+
+
+td .fa-trash-alt, td .fa-edit, td .fa-list {
+    font-size: 20px;
+    padding: 3px;
+}
+
+p.top-btn {
+    margin-bottom: 25px;
+}
+
+.create-btn {
+    background-color: #008080;
+    color: #fff;
+    font-size: 15px;
+    padding: 4px 13px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+    .create-btn:hover {
+        background-color: #008b8b;
+        color: #fff;
+    }
+
+.cancel-btn {
+    background-color: #fa8072;
+    color: #fff;
+    font-size: 15px;
+    padding: 4px 13px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+    .cancel-btn:hover {
+        background-color: #a0522d;
+        color: #fff;
+    }

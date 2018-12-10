@@ -1,0 +1,24 @@
+﻿@model MohatechDomain.User
+
+@{
+    ViewBag.Title = "پنل کاربری";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table>
+    <tr>
+        <td>نام و نام خانوادگی : </td>
+        <td>@Model.FirstName @Model.LastName</td>
+    </tr>
+    <tr>
+        <td>نام کاربری : </td>
+        <td>@Model.UserName</td>
+    </tr>
+    <tr>
+        <td>ایمیل : </td>
+        <td>@Model.Email</td>
+    </tr>
+</table>
+
+@Html.ActionLink("تغییر رمز عبور", "ChangePassword",new {id=Model.UserId})
+@Html.ActionLink("ویرایش اطلاعات", "EditProfile", new { id = Model.UserId })

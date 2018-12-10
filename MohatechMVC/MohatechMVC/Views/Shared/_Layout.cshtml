@@ -1,0 +1,84 @@
+﻿@using MohatechBusiness.Interfaces
+@using MohatechBusiness.Classes
+@using MohatechDomain;
+@{
+    ISettingBusiness settingBusiness = new SettingBusiness();
+    Setting setting = settingBusiness.Get();
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="@setting.Description" />
+    <meta name="keyword" content="@setting.Keyword" />
+    @*<meta name="image" content="@Url.Content("~/Conent/Image/"+@setting.NavIcon) " />*@
+    <title>@setting.SiteTitle - @ViewBag.Title</title>
+    @Styles.Render("~/Content/Styles")
+</head>
+<body>
+    <!-- Header -->
+    <section id="header">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="phone">
+                    <p>phone</p>
+                    <p>email</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="logo">
+                    <a href="#">
+                        <img src="" alt="" />
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="">
+                    <a href="#">
+                        login
+                    </a>
+                    <a href="#">
+                        register
+                    </a>
+                    <a href="#">
+                        profile
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu -->
+    <section id="menu">
+        <div class="row">
+            <ul class="Underline">
+                <li>
+                    <a href="#">صفحه اصلی</a>
+                </li>
+                <li>
+                    <a href="#">محصولات آموزشی</a>
+                </li>
+                <li>
+                    <a href="#">اخبار</a>
+                </li>
+                <li>
+                    <a href="#">درباره ما</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Slider -->
+
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
