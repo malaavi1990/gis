@@ -3,3 +3,4 @@ D:\MohaNEW\MohaTech Last Version\MohatechMVC\MohatechViewModel\bin\Debug\Mohatec
 D:\MohaNEW\MohaTech Last Version\MohatechMVC\MohatechViewModel\obj\Debug\MohatechViewModel.csproj.CoreCompileInputs.cache
 D:\MohaNEW\MohaTech Last Version\MohatechMVC\MohatechViewModel\obj\Debug\MohatechViewModel.dll
 D:\MohaNEW\MohaTech Last Version\MohatechMVC\MohatechViewModel\obj\Debug\MohatechViewModel.pdb
+D:\MohaNEW\MohaTech Last Version\MohatechMVC\MohatechViewModel\obj\Debug\MohatechViewModel.csprojAssemblyReference.cache

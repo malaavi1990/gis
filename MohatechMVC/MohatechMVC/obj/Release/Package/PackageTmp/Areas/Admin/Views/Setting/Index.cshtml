@@ -1,0 +1,46 @@
+﻿@model MohatechDomain.Setting
+
+@{
+    ViewBag.Title = "تنظیمات سایت";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h4>تنظیمات سایت</h4>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SiteTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupportEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InfoEmail)
+        </th>
+        <th></th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.SiteTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.SupportEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.InfoEmail)
+        </td>
+        <td>
+            <a href="/Admin/Setting/Edit/@Model.SettingId"><i class="far fa-edit"></i></a>
+        </td>
+    </tr>
+
+
+</table>

@@ -15,36 +15,42 @@
     <meta name="keyword" content="@setting.Keyword" />
     @*<meta name="image" content="@Url.Content("~/Conent/Image/"+@setting.NavIcon) " />*@
     <title>@setting.SiteTitle - @ViewBag.Title</title>
-    @Styles.Render("~/Content/Styles")
+    @*@Styles.Render("~/Content/Styles")
+        @Styles.Render("~/Content/FontAwesome")*@
+
+    <link href="~/Content/Styles/all.min.css" rel="stylesheet" />
+    <link href="~/Content/Styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Styles/Site.css" rel="stylesheet" />
 </head>
 <body>
+    <!-- To Top Button -->
+    <div id="to-top">
+        <a href="#">
+            <i class="fas fa-angle-double-up"></i>
+        </a>
+    </div>
+
     <!-- Header -->
-    <section id="header">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="phone">
-                    <p>phone</p>
-                    <p>email</p>
+    <section id="header" class="bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="phone">
+                        <p>ایمیل : malaavi1990@gmail.com</p>
+                        <p>تلفن تماس : 09133625399</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="logo">
-                    <a href="#">
-                        <img src="" alt="" />
-                    </a>
+                <div class="col-md-4">
+                    <div class="logo">
+                        <a href="#">
+                            <img src="" alt="" />
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="">
-                    <a href="#">
-                        login
-                    </a>
-                    <a href="#">
-                        register
-                    </a>
-                    <a href="#">
-                        profile
-                    </a>
+                <div class="col-md-4">
+                    <div class="login">
+                        @Html.Partial("_Login")
+                    </div>
                 </div>
             </div>
         </div>
@@ -52,33 +58,127 @@
 
     <!-- Menu -->
     <section id="menu">
-        <div class="row">
-            <ul class="Underline">
-                <li>
-                    <a href="#">صفحه اصلی</a>
-                </li>
-                <li>
-                    <a href="#">محصولات آموزشی</a>
-                </li>
-                <li>
-                    <a href="#">اخبار</a>
-                </li>
-                <li>
-                    <a href="#">درباره ما</a>
-                </li>
-            </ul>
-        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <a class="navbar-brand mr-5" href="#">جی آی اس تهران</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">صفحه اصلی<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">محصولات آموزشی</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">محصولات آموزشی رایگان</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">نرم افزارها</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">کتابهای آموزشی</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">اخبار</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">قوانین سایت</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">درباره ما</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">تماس با ما</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </section>
 
-    <!-- Slider -->
+    <!-- Banner -->
+    <section id="slider">
+        @RenderSection("Slider", false)
+    </section>
 
-
-    <div class="container">
+    <div>
         @RenderBody()
     </div>
 
+    <!-- Contact Us -->
+    <section id="contact">
+        <div class="container-fluid">
+            <div class="contact-title">
+                <h1>تماس با ما</h1>
+                <p>چگونه با جی آی اس تهران ارتباط برقرار کنیم ؟ </p>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-4">
+
+                </div>
+
+                <div class="col-md-4">
+                    <div class="address contact-item">
+                        <h3>تلفن و آدرس : </h3>
+                        <hr>
+                        <p>
+
+                        </p>
+                        <p>
+                            <i class="fas fa-phone"></i> 09133625399
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="social contact-item">
+                        <h3>شبکه های اجتماعی : </h3>
+                        <hr>
+                        <div class="social-item">
+                            <a href="#">
+                                <i class="fab fa-telegram-plane"></i>
+                            </a>
+                        </div>
+                        <div class="social-item">
+                            <a href="#">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                        <div class="social-item">
+                            <a href="#">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                        <div class="social-item">
+                            <a href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                        <div class="social-item">
+                            <a href="#">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Copy Right -->
+    <section id="copy-right">
+        <div class="container">
+            <p>
+                <i class="far fa-copyright"></i> حقوق مادی و معنوی این سایت متعلق به شرکت جی آی اس تهران میباشد.
+            </p>
+        </div>
+    </section>
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

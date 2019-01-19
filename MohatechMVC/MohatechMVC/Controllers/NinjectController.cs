@@ -28,6 +28,9 @@ namespace MohatechMVC.Controllers
             ninjectKernel.Bind<IGalleryBusiness>().To<GalleryBusiness>();
             ninjectKernel.Bind<ISliderBusiness>().To<SliderBusiness>();
             ninjectKernel.Bind<INewsBusiness>().To<NewsBusiness>();
+            ninjectKernel.Bind<IBookBusiness>().To<BookBusiness>();
+            ninjectKernel.Bind<ISoftwareBusiness>().To<SoftwareBusiness>();
+            ninjectKernel.Bind<ICommentBusiness>().To<CommentBusiness>();
         }
 
         protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)

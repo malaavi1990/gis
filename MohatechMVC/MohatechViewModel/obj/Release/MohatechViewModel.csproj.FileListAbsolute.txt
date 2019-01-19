@@ -1,0 +1,6 @@
+D:\MohaNEW\MohaTech Last Version\MohatechMVC\MohatechViewModel\bin\Release\MohatechViewModel.dll
+D:\MohaNEW\MohaTech Last Version\MohatechMVC\MohatechViewModel\bin\Release\MohatechViewModel.pdb
+D:\MohaNEW\MohaTech Last Version\MohatechMVC\MohatechViewModel\obj\Release\MohatechViewModel.csprojAssemblyReference.cache
+D:\MohaNEW\MohaTech Last Version\MohatechMVC\MohatechViewModel\obj\Release\MohatechViewModel.csproj.CoreCompileInputs.cache
+D:\MohaNEW\MohaTech Last Version\MohatechMVC\MohatechViewModel\obj\Release\MohatechViewModel.dll
+D:\MohaNEW\MohaTech Last Version\MohatechMVC\MohatechViewModel\obj\Release\MohatechViewModel.pdb

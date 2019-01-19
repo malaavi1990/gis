@@ -1,0 +1,81 @@
+﻿@using MohatechDomain
+@model MohatechDomain.Gallery
+
+@{
+    ViewBag.Title = "تصاویر محصول";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Gallery", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.ProductId)
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-horizontal">
+                <h4>تصاویر محصول</h4>
+                <hr />
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <p>نام محصول: @ViewBag.ProductName</p>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-10" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ImageName, htmlAttributes: new { @class = "control-label col-md-10" })
+                    <div class="col-md-10">
+                        <input type="file" name="imgUp" />
+                        @Html.ValidationMessageFor(model => model.ImageName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <table class="table-bordered">
+                <tr>
+                    <th>تصویر محصول</th>
+                    <th>عنوان تصویر</th>
+                    <th></th>
+                </tr>
+                @{
+                    IEnumerable<Gallery> list = ViewBag.Galleries;
+                    foreach (var gallery in list)
+                    {
+                        <tr>
+                            <td>
+                                <img src="/Content/Image/Product/Thumbnail/@gallery.ImageName" alt="@gallery.Title" class="img-thumbnail" />
+                            </td>
+                            <td>
+                                @gallery.Title
+                            </td>
+                            <td>
+                                <a href="/Admin/Products/DeleteGallery/@gallery.GalleryId"><i class="far fa-trash-alt"></i></a>
+
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </table>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="تایید" class="create-btn" />
+                @Html.ActionLink("بازگشت", "Index", null, new { @class = "cancel-btn" })
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

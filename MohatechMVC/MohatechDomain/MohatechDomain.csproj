@@ -64,7 +64,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Book.cs" />
     <Compile Include="Category.cs" />
+    <Compile Include="Comment.cs" />
     <Compile Include="Gallery.cs" />
     <Compile Include="News.cs" />
     <Compile Include="Product.cs" />
@@ -73,6 +75,7 @@
     <Compile Include="Role.cs" />
     <Compile Include="Setting.cs" />
     <Compile Include="Slider.cs" />
+    <Compile Include="Software.cs" />
     <Compile Include="Tag.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>

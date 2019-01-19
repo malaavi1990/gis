@@ -19,6 +19,9 @@ namespace MohatechDAL.UnitOfWork
         ITagDal TagDal { get; }
         ISliderDal SliderDal { get; }
         INewsDal NewsDal { get; }
+        IBookDal BookDal { get; }
+        ISoftwareDal SoftwareDal { get; }
+        ICommentDal CommentDal { get; }
         void Save();
         void Dispose();
     }

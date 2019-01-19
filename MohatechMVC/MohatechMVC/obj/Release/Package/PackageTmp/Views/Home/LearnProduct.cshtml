@@ -1,0 +1,63 @@
+﻿@using MohatechDomain
+
+@model MohatechDomain.Product
+@{
+    ViewBag.Title = "محصول آموزشی";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Project Details -->
+<section id="project-detail">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 p-4">
+                <div class="project-left">
+                    <div class="project-text">
+                        <h2>@Model.Title</h2>
+                        <hr>
+                        <h5>@Model.Description</h5>
+                        <div>@Model.Text</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 p-4">
+                <div class="project-right">
+                    <a href="#">
+                        <img class="main-img" src="~/Content/Image/Product/@Model.ImageName" alt="کوالا پت">
+                    </a>
+                    <div class="row">
+                        @foreach (var gallery in Model.Galleries.Where(g => g.ProductId == Model.ProductId))
+                        {
+                            <div class="col-sm-4 col-4 gallery-img">
+                                <a href="#">
+                                    <img src="~/Content/Image/Product/Thumbnail/@gallery.ImageName" alt="@gallery.Title">
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="other-project">
+            <h3>پروژه های مشابه</h3>
+            <hr>
+            <div class="row">
+                @{
+                    IEnumerable<Product> others = ViewBag.OtherProduct;
+                    foreach (var other in others)
+                    {
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="other-project-item">
+                                <a href="/Home/LearnProduct/@other.ProductId">
+                                    <img src="~/Content/Image/Product/@other.ImageName" alt="@other.Title">
+                                    <h5>@other.Title </h5>
+                                    <p>@other.Description</p>
+                                </a>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</section>

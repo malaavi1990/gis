@@ -1,0 +1,32 @@
+﻿@model IEnumerable<MohatechDomain.News>
+
+<section id="news">
+    <div class="container-fluid">
+        <div class="main-title">
+            <h1>آخرین اخبار</h1>
+            <hr>
+            <p>آخرین اخبار</p>
+        </div>
+        <div class="row">
+            @{
+                foreach (var item in Model)
+                {
+                    <div class="col-md-4 col-sm-6">
+                        <div class="news-item row">
+                            <div class="news-img">
+                                <img src="~/Content/Image/News/@item.ImageName" alt="@item.Title" />
+                            </div>
+                            <div class="news-title">
+                                <a href="/Home/NewsDetails/@item.NewsId">
+                                    <h5>@item.Title</h5>
+                                    <p>@item.Description</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+        </div>
+    </div>
+</section>

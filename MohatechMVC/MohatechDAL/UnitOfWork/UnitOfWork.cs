@@ -111,9 +111,9 @@ namespace MohatechDAL.UnitOfWork
         {
             get
             {
-                if (_productCategoryDal==null)
+                if (_productCategoryDal == null)
                 {
-                    _productCategoryDal=new ProductCategoryDal(_context);
+                    _productCategoryDal = new ProductCategoryDal(_context);
                 }
 
                 return _productCategoryDal;
@@ -145,6 +145,48 @@ namespace MohatechDAL.UnitOfWork
                 }
 
                 return _newsDal;
+            }
+        }
+
+        private IBookDal _bookDal;
+        public IBookDal BookDal
+        {
+            get
+            {
+                if (_bookDal == null)
+                {
+                    _bookDal = new BookDal(_context);
+                }
+
+                return _bookDal;
+            }
+        }
+
+        private ISoftwareDal _softwareDal;
+        public ISoftwareDal SoftwareDal
+        {
+            get
+            {
+                if (_softwareDal == null)
+                {
+                    _softwareDal = new SoftwareDal(_context);
+                }
+
+                return _softwareDal;
+            }
+        }
+
+        private ICommentDal _commentDal;
+        public ICommentDal CommentDal
+        {
+            get
+            {
+                if (_commentDal == null)
+                {
+                    _commentDal = new CommentDal(_context);
+                }
+
+                return _commentDal;
             }
         }
 

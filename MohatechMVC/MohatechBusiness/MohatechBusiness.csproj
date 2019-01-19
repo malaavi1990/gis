@@ -45,7 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\BookBusiness.cs" />
     <Compile Include="Classes\CateoryBusiness.cs" />
+    <Compile Include="Classes\CommentBusiness.cs" />
     <Compile Include="Classes\GalleryBusiness.cs" />
     <Compile Include="Classes\NewsBusiness.cs" />
     <Compile Include="Classes\ProductBusiness.cs" />
@@ -53,9 +55,12 @@
     <Compile Include="Classes\RoleBusiness.cs" />
     <Compile Include="Classes\SettingBusiness.cs" />
     <Compile Include="Classes\SliderBusiness.cs" />
+    <Compile Include="Classes\SoftwareBusiness.cs" />
     <Compile Include="Classes\TagBusiness.cs" />
     <Compile Include="Classes\UserBusiness.cs" />
+    <Compile Include="Interfaces\IBookBusiness.cs" />
     <Compile Include="Interfaces\ICategoryBusiness.cs" />
+    <Compile Include="Interfaces\ICommentBusiness.cs" />
     <Compile Include="Interfaces\IGalleryBusiness.cs" />
     <Compile Include="Interfaces\INewsBusiness.cs" />
     <Compile Include="Interfaces\IProductBusiness.cs" />
@@ -63,6 +68,7 @@
     <Compile Include="Interfaces\IRoleBusiness.cs" />
     <Compile Include="Interfaces\ISettingBusiness.cs" />
     <Compile Include="Interfaces\ISliderBusiness.cs" />
+    <Compile Include="Interfaces\ISoftwareBusiness.cs" />
     <Compile Include="Interfaces\ITagBusiness.cs" />
     <Compile Include="Interfaces\IUserBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
@@ -23,14 +22,12 @@ namespace MohatechDomain
 
         [Display(Name = "متن")]
         [DataType(DataType.MultilineText)]
-        [AllowHtml]
         public string Text { get; set; }
 
         [Display(Name = "بازدید")]
         public int Visit { get; set; }
 
         [Display(Name = "قیمت")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "لطفا {0} را وارد کنید")]
         public long Price { get; set; }
 
         [Display(Name = "تصویر")]
@@ -38,10 +35,10 @@ namespace MohatechDomain
         public string ImageName { get; set; }
 
         [Display(Name = "ترتیب نمایش")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "لطفا {0} را وارد کنید")]
         public int Sort { get; set; }
 
         public virtual ICollection<ProductCategory> ProductCategories { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<Gallery> Galleries { get; set; }
         public virtual ICollection<Tag> Tags { get; set; }
     }

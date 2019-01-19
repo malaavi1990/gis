@@ -1,0 +1,35 @@
+﻿
+@model MohatechDomain.Comment
+
+@using (Ajax.BeginForm("CreateComment", "Product", FormMethod.Post, new AjaxOptions()
+{
+    OnSuccess = "successComment",
+    UpdateTargetId = "listComment"
+}))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.ProductId)
+    @Html.HiddenFor(m => m.ParentId)
+    <h5>نظرات و دیدگاهها</h5>
+    <hr/>
+    <div class="row mb-4">
+        <div class="col-md-5">
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.Name, new {@class = "form-control", placeholder = "نام خود را وارد کنید"})
+                @Html.ValidationMessageFor(model => model.Name, "", new {@class = "text-danger"})
+            </div>
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.Email, new {@class = "form-control", placeholder = "ایمیل خود را وارد کنید"})
+                @Html.ValidationMessageFor(model => model.Email, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="col-md-7">
+            @Html.TextAreaFor(m => m.Title, new {@class = "form-control", placeholder = "متن نظر خود را وارد کنید"})
+            @Html.ValidationMessageFor(model => model.Title, "", new {@class = "text-danger"})
+            <input class="btn btn-sm btn-success mt-3" value="ثبت دیدگاه" type="submit">
+        </div>
+    </div>
+    <hr/>
+    <br/>
+    <div class="clearfix"></div>
+}

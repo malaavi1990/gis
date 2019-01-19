@@ -256,6 +256,10 @@ namespace MohatechMVC.Areas.Admin.Controllers
 
         public ActionResult Delete(int id)
         {
+            Product product = _productBusiness.GetById(id);
+            System.IO.File.Delete(Server.MapPath("/Content/Image/Product/" + product.ImageName));
+            System.IO.File.Delete(Server.MapPath("/Content/Image/Product/Thumbnail/" + product.ImageName));
+
             _productBusiness.Delete(id);
             _productBusiness.Save();
             return RedirectToAction("Index");
@@ -291,7 +295,7 @@ namespace MohatechMVC.Areas.Admin.Controllers
                     return RedirectToAction("Gallery", new { id = gallery.ProductId });
                 }
             }
-            
+
             return RedirectToAction("Gallery", new { id = gallery.ProductId });
         }
 
@@ -300,9 +304,10 @@ namespace MohatechMVC.Areas.Admin.Controllers
             var gallery = _galleryBusiness.GetById(id);
             System.IO.File.Delete(Server.MapPath("/Content/Image/Product/" + gallery.ImageName));
             System.IO.File.Delete(Server.MapPath("/Content/Image/Product/Thumbnail/" + gallery.ImageName));
+
             _galleryBusiness.Delete(id);
             _galleryBusiness.Save();
-            return RedirectToAction("Gallery", new { id = gallery.ProductId});
+            return RedirectToAction("Gallery", new { id = gallery.ProductId });
         }
     }
 }

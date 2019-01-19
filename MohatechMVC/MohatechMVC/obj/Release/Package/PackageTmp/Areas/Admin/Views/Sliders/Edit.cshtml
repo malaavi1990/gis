@@ -1,0 +1,82 @@
+﻿@model MohatechDomain.Slider
+
+@{
+    ViewBag.Title = "ویرایش اسلایدر";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "Sliders", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <div class="form-horizontal">
+            <h4>ویرایش اسلایدر</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model=>model.SliderId)
+            @Html.HiddenFor(model=>model.ImageName)
+
+            @if (ViewBag.SliderImage == true)
+            {
+                <div class="alert alert-danger">
+                    <p>تصویر را انتخاب کنید</p>
+                </div>
+            }
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-9" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Sort, htmlAttributes: new { @class = "control-label col-md-9" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.Sort, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Sort, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ImageName, htmlAttributes: new { @class = "control-label col-md-9" })
+                        <div class="col-md-9">
+                            <img id="imgPreviewSlider" src="/Content/Image/Slider/Thumbnail/@Model.ImageName" class="img-thumbnail" />
+                            <input id="imageSlider" type="file" name="imgUp" />
+                            @Html.ValidationMessageFor(model => model.ImageName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-offset-3 col-md-9">
+                    <input type="submit" value="تایید" class="create-btn" />
+                    @Html.ActionLink("بازگشت", "Index", null, new { @class = "cancel-btn" })
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#imgPreviewSlider').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imageSlider").change(function () {
+            readURL(this);
+        });
+    </script>
+}

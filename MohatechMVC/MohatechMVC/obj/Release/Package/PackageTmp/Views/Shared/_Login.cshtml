@@ -1,0 +1,14 @@
+﻿
+@{
+    if (User.Identity.IsAuthenticated)
+    {
+        <a href="/Logout"><i class="fas fa-power-off"></i>خروج</a>
+        <a href="/Register"><i class="fas fa-user"></i>@User.Identity.Name خوش آمدید</a>
+    }
+    else
+    {
+        <a href="/Login"><i class="fas fa-user"></i>ورود به سایت</a>
+        <a href="/Register"><i class="fas fa-registered"></i>ثبت نام</a>
+    }
+}
+

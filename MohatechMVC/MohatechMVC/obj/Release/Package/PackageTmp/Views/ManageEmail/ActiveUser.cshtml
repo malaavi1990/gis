@@ -1,0 +1,10 @@
+﻿@using System.Configuration
+@model MohatechDomain.User
+
+<div style="direction: rtl; padding: 20px;">
+    <h3>@Model.FirstName عزیز !</h3>
+    <p>با تشکر از ثبت نام شما در سایت مهاتک. لطفا جهت فعالسازی حساب کاربری خود روی لینک زیر کلیک کنید </p>
+    <p>
+        <a href="@ConfigurationManager.AppSettings["MyDomain"]/Account/ActiveUser/@Model.ActiveCode">لینک فعالسازی</a>
+    </p>
+</div>

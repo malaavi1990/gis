@@ -1,0 +1,32 @@
+﻿@model IEnumerable<MohatechDomain.Software>
+
+<section id="soft">
+    <div class="container-fluid">
+        <div class="main-title">
+            <h1>نرم افزارها</h1>
+            <hr>
+            <p>نرم افزارها</p>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6">
+                    <div class="soft-item row">
+                        <div class="soft-img">
+                            <a href="/Home/SoftwareDetails/@item.SoftwareId">
+                                <img src="~/Content/Image/Softwares/Thumbnail/@item.ImageName" alt="@item.Title" />
+                            </a>
+                        </div>
+                        <div class="soft-title">
+                            <a href="/Home/SoftwareDetails/@item.SoftwareId">
+                                <h5>@item.Title</h5>
+                                <p>@item.Description</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

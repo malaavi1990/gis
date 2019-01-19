@@ -40,29 +40,27 @@ namespace MohatechMVC.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "UserId,Email,Password,UserName,FirstName,LastName,IsActive,RoleId")] User user)
         {
-            //if (ModelState.IsValid)
-            //{
-
-            var checkEmail = _userBusiness.CheckEmail(user.Email);
-            if (checkEmail == false)
+            if (ModelState.IsValid)
             {
-                string hashPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(user.Password, "MD5");
-                user.Password = hashPassword;
-                user.RegisterDate = DateTime.Now;
-                user.ActiveCode = Guid.NewGuid().ToString();
-                _userBusiness.Insert(user);
-                _userBusiness.Save();
-                return RedirectToAction("Index");
-            }
+                var checkEmail = _userBusiness.CheckEmail(user.Email);
+                if (checkEmail == false)
+                {
+                    string hashPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(user.Password, "MD5");
+                    user.Password = hashPassword;
+                    user.RegisterDate = DateTime.Now;
+                    user.ActiveCode = Guid.NewGuid().ToString();
+                    _userBusiness.Insert(user);
+                    _userBusiness.Save();
+                    return RedirectToAction("Index");
+                }
 
-            ViewBag.Message = "ایمیل وارد شده تکراری است";
-            ViewBag.Class = "alert alert-danger";
+                ViewBag.Message = "ایمیل وارد شده تکراری است";
+                ViewBag.Class = "alert alert-danger";
+                ViewBag.RoleId = new SelectList(_roleBusiness.Get(), "RoleId", "RoleName", user.RoleId);
+                return View(user);
+            }
             ViewBag.RoleId = new SelectList(_roleBusiness.Get(), "RoleId", "RoleName", user.RoleId);
             return View(user);
-
-            //}
-            //ViewBag.RoleId = new SelectList(_roleBusiness.Get(), "RoleId", "RoleName", user.RoleId);
-            //return View(user);
         }
 
         [HttpGet]

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MohatechDomain.Book>
+
+<section id="book">
+    <div class="book-cover">
+        <div class="container-fluid">
+            <div class="container-fluid">
+                <div class="main-title">
+                    <h1>کتابهای آموزشی</h1>
+                    <hr>
+                    <p>کتابهای آموزشی</p>
+                </div>
+            </div>
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-3">
+                        <div class="book-item">
+                            <a href="/Home/BookDetails/@item.BookId">
+                                <div class="book-img">
+                                    <img src="~/Content/Image/Book/Thumbnail/@item.ImageName" alt="@item.Title">
+                                </div>
+                                <h3>
+                                    @item.Title
+                                </h3>
+                                <p>@item.Description</p>
+                            </a>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</section>
+

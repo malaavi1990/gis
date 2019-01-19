@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.Mvc;
 
 namespace MohatechDomain
 {
@@ -30,19 +31,17 @@ namespace MohatechDomain
         public string FirstName { get; set; }
 
         [Display(Name = "نام خانوادگی")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "لطفا {0} را وارد کنید")]
         [StringLength(35, MinimumLength = 3, ErrorMessage = "{0} باید بین {2} و {1} کاراکتر باشد")]
         public string LastName { get; set; }
 
         [Display(Name = "وضعیت")]
         public bool IsActive { get; set; }
 
-        [Required(AllowEmptyStrings = false)]
         public string ActiveCode { get; set; }
 
         [Display(Name = "تاریخ ثبت نام")]
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
-        public DateTime RegisterDate { get; set; }
+        public Nullable<DateTime> RegisterDate { get; set; }
 
         [Display(Name = "نقش کاربر")]
         public int RoleId { get; set; }

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MohatechDomain.Software>
+
+@{
+    ViewBag.Title = "لیست نرم افزارها";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h4>لیست نرم افزارها</h4>
+<hr />
+<p>
+    @Html.ActionLink("افزودن نرم افزار", "Create", null, new { @class = "create-btn" })
+</p>
+<table class="table table-bordered mt-4">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Visit)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="/Content/Image/Softwares/Thumbnail/@item.ImageName" class="img-thumbnail" alt="@item.Title" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Visit)
+            </td>
+            <td>
+                <a href="/Admin/Softwares/Edit/@item.SoftwareId"><i class="far fa-edit"></i></a> |
+                <a href="/Admin/Softwares/Delete/@item.SoftwareId"><i class="far fa-trash-alt"></i></a>
+            </td>
+        </tr>
+    }
+
+</table>

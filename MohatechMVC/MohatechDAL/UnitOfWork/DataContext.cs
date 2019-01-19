@@ -25,5 +25,9 @@ namespace MohatechDAL.UnitOfWork
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<Slider> Slider { get; set; }
         public DbSet<News> News { get ; set; }
+        public DbSet<Book> Book { get; set; }
+        public DbSet<Software> Software{ get; set; }
+        public DbSet<Comment> Comment{ get; set; }
+
     }
 }
